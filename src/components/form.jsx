@@ -108,21 +108,27 @@ export default function CustomForm() {
           ))}
         </fieldset>
       </div>
-      <div>
-        <label id="tiger-sighting-label" htmlFor={"tigerSighting"} className="">
-          Please tell us where you saw a tiger.
-        </label>
-        <textarea
-          id="tigerSighting"
-          name="tigerSighting"
-          value={formData.tigerSighting}
-          onChange={handleChange}
-          className=""
-          aria-labelledby="tiger-sighting-label"
-        ></textarea>
-      </div>
+      {formData.animals.includes("tiger") && (
+        <div>
+          <label
+            id="tiger-sighting-label"
+            htmlFor={"tigerSighting"}
+            className=""
+          >
+            Please tell us where you saw a tiger.
+          </label>
+          <textarea
+            id="tigerSighting"
+            name="tigerSighting"
+            value={formData.tigerSighting}
+            onChange={handleChange}
+            className=""
+            aria-labelledby="tiger-sighting-label"
+          ></textarea>
+        </div>
+      )}
 
-      <button type="submit" className="">
+      <button type="submit" className="button">
         Submit
       </button>
     </form>
