@@ -10,17 +10,17 @@
   }
 }
 
-.form-title {
+.formTitle {
   margin-top: 0;
 }
 
-.form-item {
+.formItem {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
   margin-bottom: 1rem;
-  &.long-answer {
+  &.longAnswer {
     flex-direction: column;
   }
   &.center {
@@ -31,7 +31,7 @@
     justify-content: left;
     align-items: flex-start;
     gap: 0.5rem;
-    &.long-answer {
+    &.longAnswer {
       text-align: left;
     }
   }
@@ -59,7 +59,7 @@ fieldset {
   resize: none;
 }
 
-.input-field,
+.inputField,
 .select {
   height: 32px;
   width: 180px;
@@ -80,7 +80,7 @@ fieldset {
   min-width: 120px;
 }
 
-.input-field {
+.inputField {
   // https://caniuse.com/mdn-css_selectors_user-invalid
   &:user-invalid {
     border: 2px solid rgb(219, 23, 23);
@@ -88,13 +88,24 @@ fieldset {
 }
 
 .button {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.25s;
   background-color: #dbf68f;
-  border: none;
   max-height: 48px;
   padding: 0.5rem 2rem;
-  cursor: pointer;
   overflow: hidden;
+  cursor: pointer;
   &:hover {
     background-color: #bfd879;
+  }
+
+  &.button:focus,
+  .button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
   }
 }

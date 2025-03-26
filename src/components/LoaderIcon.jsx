@@ -1,10 +1,10 @@
-import "./loaderIcon.scss";
+import styles from "./loaderIcon.module.scss";
 
 export default function LoaderIcon() {
   /// Loader SVG from: https://codepen.io/aurer/pen/ZEJxpO I did not create this svg, I did edit this code to remove the animation stuff from this file and make it optional in the css
   return (
     <svg
-      className="loader"
+      className={styles.loader}
       version="1.1"
       id="loader-1"
       xmlns="http://www.w3.org/2000/svg"

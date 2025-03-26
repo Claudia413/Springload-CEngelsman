@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import "./Form.scss";
+import styles from "./Form.module.scss";
 import LoaderIcon from "./LoaderIcon";
 
 const colours = ["blue", "green", "red", "black", "brown"];
@@ -11,7 +11,7 @@ export default function Form() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    colour: "blue",
+    colour: "",
     animals: [],
     tigerSighting: "",
   });
@@ -50,12 +50,10 @@ export default function Form() {
   );
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <h2 className="form-title">Your account information</h2>
-      <div className="form-item">
-        <label htmlFor="email" className="">
-          Email address*
-        </label>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <h2 className={styles.formTitle}>Your account information</h2>
+      <div className={styles.formItem}>
+        <label htmlFor="email">Email address*</label>
         <input
           type="email"
           id="email"
@@ -63,14 +61,12 @@ export default function Form() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="input-field"
+          className={styles.inputField}
         />
       </div>
 
-      <div className="form-item">
-        <label htmlFor="password" className="">
-          Password*
-        </label>
+      <div className={styles.formItem}>
+        <label htmlFor="password">Password*</label>
         <input
           type="password"
           id="password"
@@ -78,35 +74,33 @@ export default function Form() {
           value={formData.password}
           onChange={handleChange}
           required
-          minlength="8"
-          className="input-field"
+          minLength="8"
+          className={styles.inputField}
         />
       </div>
-      <div className="form-item">
-        <label htmlFor="colour" className="">
-          Select your favorite color
-        </label>
+      <div className={styles.formItem}>
+        <label htmlFor="colour">Select your favorite color</label>
 
         <select
           id="colour"
           name="colour"
           value={formData.colour}
           onChange={handleChange}
-          className="select"
+          className={styles.select}
           aria-label="Choose a favorite colour"
         >
           {colours.map((colour) => (
-            <option key={colour} value={colour} className="option">
+            <option key={colour} value={colour} className={styles.option}>
               {colour}
             </option>
           ))}
         </select>
       </div>
-      <div className="form-item center">
+      <div className={styles.formItem + " " + styles.center}>
         <fieldset>
-          <legend className="">Select animals you have seen in the wild</legend>
+          <legend>Select animals you have seen in the wild</legend>
           {animals.map((animal) => (
-            <div key={animal} className="">
+            <div key={animal}>
               <input
                 type="checkbox"
                 id={animal}
@@ -114,10 +108,13 @@ export default function Form() {
                 value={animal}
                 checked={formData.animals.includes(animal)}
                 onChange={handleAnimalChange}
-                className=""
                 aria-labelledby={`${animal}-label`}
               />
-              <label id={`${animal}-label`} htmlFor={animal} className="label">
+              <label
+                id={`${animal}-label`}
+                htmlFor={animal}
+                className={styles.label}
+              >
                 {animal}
               </label>
             </div>
@@ -125,8 +122,8 @@ export default function Form() {
         </fieldset>
       </div>
       {formData.animals.includes("tiger") && (
-        <div className="form-item long-answer">
-          <label id="tiger-sighting-label" htmlFor="tigerSighting" className="">
+        <div className={styles.formItem + " " + styles.longAnswer}>
+          <label id="tiger-sighting-label" htmlFor="tigerSighting">
             Please tell us where you saw a tiger.
           </label>
           <textarea
@@ -134,14 +131,14 @@ export default function Form() {
             name="tigerSighting"
             value={formData.tigerSighting}
             onChange={handleChange}
-            className="textarea"
+            className={styles.textarea}
             aria-labelledby="tiger-sighting-label"
             placeholder="I saw a tiger in..."
           ></textarea>
         </div>
       )}
 
-      <button type="submit" className="button" disabled={loadingState}>
+      <button type="submit" className={styles.button} disabled={loadingState}>
         {loadingState ? <LoaderIcon /> : "Submit"}
       </button>
     </form>
