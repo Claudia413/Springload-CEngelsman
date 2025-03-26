@@ -1,4 +1,4 @@
-import "./loaderIcon1.scss";
+import "./loaderIcon.scss";
 
 export default function LoaderIcon() {
   /// Loader SVG from: https://codepen.io/aurer/pen/ZEJxpO I did not create this svg, I did edit this code to remove the animation stuff from this file and make it optional in the css

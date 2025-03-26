@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import "./Form1.scss";
-import LoaderIcon from "./LoaderIcon1";
+import "./Form.scss";
+import LoaderIcon from "./LoaderIcon";
 
 const colours = ["blue", "green", "red", "black", "brown"];
 const animals = ["bear", "tiger", "snake", "donkey"];
