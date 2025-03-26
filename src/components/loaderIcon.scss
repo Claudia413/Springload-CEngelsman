@@ -1,0 +1,19 @@
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loader {
+    animation: loader-spin infinite 1s linear;
+  }
+}
+
+.loader {
+  max-height: 24px;
+  overflow: hidden;
+}

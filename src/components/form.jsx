@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./form.scss";
+import LoaderIcon from "./loaderIcon";
+
 export default function CustomForm() {
+  const [loadingState, setLoadingState] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,8 +32,16 @@ export default function CustomForm() {
     }));
   };
 
+  const triggerLoading = () => {
+    setLoadingState(true);
+    setTimeout(() => {
+      setLoadingState(false);
+    }, 30000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    triggerLoading();
     console.log("Form Data Submitted:", formData);
   };
 
@@ -131,7 +142,8 @@ export default function CustomForm() {
       )}
 
       <button type="submit" className="button">
-        Submit
+        {loadingState && <LoaderIcon />}
+        {!loadingState && "Submit"}
       </button>
     </form>
   );
