@@ -1,7 +1,7 @@
-import "./loaderIcon.scss";
+import "./loaderIcon1.scss";
 
 export default function LoaderIcon() {
-  /// Loader SVG from: https://codepen.io/aurer/pen/ZEJxpO I did not create this svg
+  /// Loader SVG from: https://codepen.io/aurer/pen/ZEJxpO I did not create this svg, I did edit this code to remove the animation stuff from this file and make it optional in the css
   return (
     <svg
       className="loader"
@@ -28,17 +28,7 @@ export default function LoaderIcon() {
         fill="#000"
         d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
     C22.32,8.481,24.301,9.057,26.013,10.047z"
-      >
-        {/* <animateTransform
-          attributeType="xml"
-          attributeName="transform"
-          type="rotate"
-          from="0 20 20"
-          to="360 20 20"
-          dur="0.7s"
-          repeatCount="indefinite"
-        /> */}
-      </path>
+      ></path>
     </svg>
   );
 }

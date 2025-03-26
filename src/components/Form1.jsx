@@ -1,9 +1,13 @@
-import { useState } from "react";
-import "./form.scss";
-import LoaderIcon from "./loaderIcon";
+import { useCallback, useState } from "react";
+import "./Form1.scss";
+import LoaderIcon from "./LoaderIcon1";
 
-export default function CustomForm() {
+const colours = ["blue", "green", "red", "black", "brown"];
+const animals = ["bear", "tiger", "snake", "donkey"];
+
+export default function Form() {
   const [loadingState, setLoadingState] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -12,17 +16,14 @@ export default function CustomForm() {
     tigerSighting: "",
   });
 
-  const colours = ["blue", "green", "red", "black", "brown"];
-  const animals = ["bear", "tiger", "snake", "donkey"];
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
+  const handleChange = useCallback((e) => {
+    setFormData((prevData) => ({
+      ...prevData,
       [e.target.name]: e.target.value,
-    });
-  };
+    }));
+  }, []);
 
-  const handleAnimalChange = (e) => {
+  const handleAnimalChange = useCallback((e) => {
     const { value, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -30,27 +31,30 @@ export default function CustomForm() {
         ? [...prevData.animals, value]
         : prevData.animals.filter((animal) => animal !== value),
     }));
-  };
+  }, []);
 
-  const triggerLoading = () => {
+  const triggerLoading = useCallback(() => {
     setLoadingState(true);
     setTimeout(() => {
       setLoadingState(false);
-    }, 30000);
-  };
+    }, 2000);
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    triggerLoading();
-    console.log("Form Data Submitted:", formData);
-  };
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      triggerLoading();
+      console.log("Form Data Submitted:", formData);
+    },
+    [formData, triggerLoading]
+  );
 
   return (
     <form onSubmit={handleSubmit} className="form">
       <h2 className="form-title">Your account information</h2>
       <div className="form-item">
         <label htmlFor="email" className="">
-          Email Address*
+          Email address*
         </label>
         <input
           type="email"
@@ -78,11 +82,11 @@ export default function CustomForm() {
           className="input-field"
         />
       </div>
-
       <div className="form-item">
         <label htmlFor="colour" className="">
           Select your favorite color
         </label>
+
         <select
           id="colour"
           name="colour"
@@ -98,7 +102,7 @@ export default function CustomForm() {
           ))}
         </select>
       </div>
-      <div className="form-item">
+      <div className="form-item center">
         <fieldset>
           <legend className="">Select animals you have seen in the wild</legend>
           {animals.map((animal) => (
@@ -122,11 +126,7 @@ export default function CustomForm() {
       </div>
       {formData.animals.includes("tiger") && (
         <div className="form-item long-answer">
-          <label
-            id="tiger-sighting-label"
-            htmlFor={"tigerSighting"}
-            className=""
-          >
+          <label id="tiger-sighting-label" htmlFor="tigerSighting" className="">
             Please tell us where you saw a tiger.
           </label>
           <textarea
@@ -141,9 +141,8 @@ export default function CustomForm() {
         </div>
       )}
 
-      <button type="submit" className="button">
-        {loadingState && <LoaderIcon />}
-        {!loadingState && "Submit"}
+      <button type="submit" className="button" disabled={loadingState}>
+        {loadingState ? <LoaderIcon /> : "Submit"}
       </button>
     </form>
   );

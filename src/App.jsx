@@ -1,5 +1,5 @@
 import "./App.scss";
-import Form from "./components/form";
+import Form from "./components/Form1";
 
 function App() {
   return (
