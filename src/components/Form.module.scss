@@ -84,6 +84,8 @@ fieldset {
   // https://caniuse.com/mdn-css_selectors_user-invalid
   &:user-invalid {
     border: 2px solid rgb(219, 23, 23);
+    animation: wiggle 0.2s ease;
+    animation-iteration-count: 3;
   }
 }
 
@@ -108,5 +110,17 @@ fieldset {
   &.button:focus,
   .button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
