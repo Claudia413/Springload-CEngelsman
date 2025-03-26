@@ -12,6 +12,12 @@
 
   box-sizing: border-box;
   background-color: #cfdff9;
+  background: linear-gradient(
+    45deg,
+    rgb(133, 255, 189) 0%,
+    rgb(255, 251, 125) 74%,
+    rgb(255, 255, 255) 100%
+  );
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #213547;
