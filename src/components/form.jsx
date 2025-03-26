@@ -36,7 +36,8 @@ export default function CustomForm() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <div>
+      <h2 className="form-title">Your account information</h2>
+      <div className="form-item">
         <label htmlFor="email" className="">
           Email Address*
         </label>
@@ -47,11 +48,11 @@ export default function CustomForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className=""
+          className="input-field"
         />
       </div>
 
-      <div>
+      <div className="form-item">
         <label htmlFor="password" className="">
           Password*
         </label>
@@ -63,11 +64,11 @@ export default function CustomForm() {
           onChange={handleChange}
           required
           minlength="8"
-          className=""
+          className="input-field"
         />
       </div>
 
-      <div>
+      <div className="form-item">
         <label htmlFor="colour" className="">
           Select your favorite color
         </label>
@@ -86,7 +87,7 @@ export default function CustomForm() {
           ))}
         </select>
       </div>
-      <div>
+      <div className="form-item">
         <fieldset>
           <legend className="">Select animals you have seen in the wild</legend>
           {animals.map((animal) => (
@@ -109,7 +110,7 @@ export default function CustomForm() {
         </fieldset>
       </div>
       {formData.animals.includes("tiger") && (
-        <div>
+        <div className="form-item long-answer">
           <label
             id="tiger-sighting-label"
             htmlFor={"tigerSighting"}
@@ -122,8 +123,9 @@ export default function CustomForm() {
             name="tigerSighting"
             value={formData.tigerSighting}
             onChange={handleChange}
-            className=""
+            className="textarea"
             aria-labelledby="tiger-sighting-label"
+            placeholder="I saw a tiger in..."
           ></textarea>
         </div>
       )}
