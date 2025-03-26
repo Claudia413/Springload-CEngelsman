@@ -15,19 +15,21 @@ Currently, two official plugins are available:
 
 Run `npm i` and then run `npm run dev`
 
-## Assumptions
+## Assumptions and choices
 
-This assessment was made with the assumption that there was no design, prioritizing the accessibility of this form and it's functionality. This lead to the decision to make the multi select not a dropdown with multi select but a number of checkboxes.
+This assessment was made with the assumption that there was no design, prioritizing the functionality and accessibility of this form. This lead to the decision to make the multi select not a dropdown with multi select but a number of checkboxes. Personal additions to the requirements include user feedback indicators, like a small wiggle for an invalid email/password field. This helps people with color issues spot the invalid field quickly. Another addition is the loading icon that temporarily replaces the submit text in the button upon submitting the form. Ideally this would work with real loading states, but in this scenario a timeOut helps to activate and deactivate this state for a few seconds. 
 
 ## Further improvement possibilities
 
 A few quick suggestions from a designer would probably improve this form greatly, a different font, better text-whitespace ratio through font-weight and line-height etc.
 The form could be made more user friendly through providing a bit more context to users what they're signing up for.
+It could also be nice to have the text area for more information of the tiger sighting appear more gradually trough an animation instead of the sudden pop in to the form. 
+Custom checkboxes always look nicer than browser default ones, especially with brand colors and styling to match the rest of the page. These however take a bit of time to get right and without a design I've chosen to stick with default checkboxes. 
 
 ## Known limitations
 
-1. The email validity check is very basic and standard at this point. With complex regex comes complex problems such as foreign characters (like Asian or Russian alphabets). If the current validation proofs to be problematic, upgrades here could be beneficial.
-2. The project scope is very small, hence the small setup with React and Vite, for expanding this project it would be recommend to integrate Typescript, and consider a framework such as NextJs to work with React as recommended by React too.
+1. The email validity check is very basic and standard at this point. With complex regex comes complex problems such as foreign characters (like Asian or Russian alphabets). If the current validation proofs to be problematic, upgrades here could make sense.
+2. The project scope is very small, hence the small lightweight setup with React and Vite, for expanding this project it would be recommend to integrate Typescript, and consider a framework such as NextJs to work with React as recommended by React too.
 
 ## Todo
 
