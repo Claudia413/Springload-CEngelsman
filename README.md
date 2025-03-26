@@ -13,8 +13,7 @@ Currently, two official plugins are available:
 
 ## To start this project
 
-Run `npm i`
-Run `npm run dev`
+Run `npm i` and then run `npm run dev`
 
 ## Assumptions
 
