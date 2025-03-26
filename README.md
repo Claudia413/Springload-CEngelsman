@@ -28,3 +28,7 @@ The form could be made more user friendly through providing a bit more context t
 
 1. The email validity check is very basic and standard at this point. With complex regex comes complex problems such as foreign characters (like Asian or Russian alphabets). If the current validation proofs to be problematic, upgrades here could be beneficial.
 2. The project scope is very small, hence the small setup with React and Vite, for expanding this project it would be recommend to integrate Typescript, and consider a framework such as NextJs to work with React as recommended by React too.
+
+## Todo
+
+Make this repo private after Springload team has had the opportunity to review and the interview is passed to prevent other people from copying this.
